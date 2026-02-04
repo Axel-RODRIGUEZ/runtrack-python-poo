@@ -10,10 +10,11 @@ class Commande:
     def annuler_com(self):
         self.__statut_com = "annulée"
 
+
     def total_com(self):
         total_prix = 0
         for plat in self.__liste_plats_com:
-            total_prix += plat["prix"]
+            total_prix += plat["Prix"]
 
         return total_prix
 
@@ -30,3 +31,7 @@ class Commande:
         total_prix = self.total_com()
 
         return total_prix * tva
+
+commande = Commande(1)
+
+commande.ajouter_plat({"Nom" : "Oeufs", "Prix": 1.99})

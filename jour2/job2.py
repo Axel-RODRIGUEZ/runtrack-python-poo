@@ -2,6 +2,9 @@ class Livre:
     def __init__(self, titre, auteur, nbr_pages):
         self.__titre = titre
         self.__auteur = auteur
+        self.__nbr_pages = nbr_pages    
+    
+    def __init__(self, nbr_pages):
         self.__nbr_pages = nbr_pages
 
     def get_titre(self):
@@ -16,15 +19,18 @@ class Livre:
 
     def get_nbr_pages(self):
         return self.__nbr_pages
+    
     def set_nbr_pages(self, nbr_pages):
         if type(nbr_pages) is int:
-            self.__nbr_pages = nbr_pages
-            return
+            if nbr_pages >= 1:
+                self.__nbr_pages = nbr_pages
+                
+            else:
+                print("Erreur, veuillez entrer un nombre positif")
         else:
             print("Erreur : Veuillez entrer un nombre entier")
-            return
         
-livre = Livre('Test', 'Axel', 213)
+livre = Livre(213)
 
 print(livre.get_nbr_pages())
 

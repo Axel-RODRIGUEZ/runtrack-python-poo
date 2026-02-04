@@ -1,5 +1,5 @@
 class Produit:
-    def __init__(self, nom, prixHT, TVA):
+    def __init__(self, nom, prixHT, TVA=0.2):
         self.nom = nom
         self.prixHT = prixHT
         self.TVA = TVA
