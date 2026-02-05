@@ -1,4 +1,4 @@
-import random
+import random, time
 
 class Carte:
     def __init__(self, nom, valeur, couleur):
@@ -46,6 +46,7 @@ class Jeu:
         
         for carte in cartes_pioche:
             print(f"La pioche à donné le {carte.nom} de {carte.couleur}. Valeur de la carte : {carte.valeur}")
+            time.sleep(0.5)
 
         return cartes_pioche
     
@@ -62,10 +63,12 @@ class Jeu:
 
     def perdu(self, total):
         print(f"Vous avez perdu ! Le total de points était de {total}")
+        time.sleep(0.5)
         return True
 
     def croupier_total(self, total):
         print(f"Le Croupier a atteint {total} ! Arrêt des jeux.")
+        time.sleep(0.5)
         return True
 
     def update(self, liste):
@@ -90,13 +93,16 @@ class Jeu:
 
         if total > 21:
             print(f"Vous avez perdu. Total : {total}")
+            time.sleep(0.5)
             return True
 
         elif total < 21 and total < total_croupier :
             print(f"Vous avez perdu ! Le croupier à un score plus élevé.\n Score du croupier : {total_croupier}\nVotre score : {total}")
+            time.sleep(0.5)
             return True
         else:
             print(f"Vous avez gagné ! Vous avez un score plus élevé que le croupier.\n Score du croupier : {total_croupier}\nVotre score : {total}")
+            time.sleep(0.5)
             return True
     
 liste_couleur = ["Pique", "Coeur", "Trèfle", "Carreau"]
@@ -154,7 +160,7 @@ while True:
             elif user_choice2 == "2":
 
                 print("Vous passez ! Au tour du croupier..")
-
+                time.sleep(0.5)
                 croupier_pioche.extend(jeu.prendre_carte())
                 check = jeu.check_croupier(croupier_pioche, croupier)
                 if check == True:
