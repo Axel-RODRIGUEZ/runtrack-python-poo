@@ -100,6 +100,7 @@ class Jeu:
             print(f"Vous avez perdu ! Le croupier à un score plus élevé.\n Score du croupier : {total_croupier}\nVotre score : {total}")
             time.sleep(0.5)
             return True
+        
         else:
             print(f"Vous avez gagné ! Vous avez un score plus élevé que le croupier.\n Score du croupier : {total_croupier}\nVotre score : {total}")
             time.sleep(0.5)
@@ -152,7 +153,7 @@ while True:
                 ckeck = jeu.check_croupier(croupier_pioche, croupier)
 
                 if check == True:
-                    jeu.check(cartes_joueur, croupier_pioche)
+                    final_check = jeu.check(cartes_joueur, croupier_pioche)
                     if final_check == True:
                         quit()
 
@@ -164,7 +165,7 @@ while True:
                 croupier_pioche.extend(jeu.prendre_carte())
                 check = jeu.check_croupier(croupier_pioche, croupier)
                 if check == True:
-                    final_check = Jeu.check(cartes_joueur, croupier_pioche)
+                    final_check = jeu.check(cartes_joueur, croupier_pioche)
                     if final_check == True:
                         quit()
 
